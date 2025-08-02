@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <title>ToDo List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="box" id="heading">
+        <h2>ToDo List</h2>
+    </div>
+    <div class="box" id="main">
+        <% for(i=0;i < ejes.length;i++){ %>
+            <div class="item">
+                <p> <input type="checkbox" class="strike-toggle">
+                    <span>
+                        <%= ejes[i] %>
+                    </span>
+                </p>
+            </div>
+
+            <% } %>
+                <form action="/" method="POST">
+                    <input type="text" placeholder="add a task" name="ele1">
+                    <button type="submit">+</button>
+                </form>
+    </div>
+
+
+    <script>
+        document.querySelectorAll('.strike-toggle').forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const span = checkbox.nextElementSibling;
+                if (checkbox.checked) {
+                    span.classList.add('strikethrough');
+                } else {
+                    span.classList.remove('strikethrough');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
